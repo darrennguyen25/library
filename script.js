@@ -41,22 +41,24 @@ document.getElementById("new-book-button").addEventListener("click", () => {
   document.getElementById("book-form").style.display = "block";
 });
 
-document.getElementById("book-form").addEventListener("submit", (event) => {
-  event.preventDefault();
+document
+  .getElementById("book-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
 
-  const title = document.getElementById("title").value;
-  const author = document.getElementById("author").value;
-  const pages = document.getElementById("pages").value;
-  const read = document.getElementById("read").checked;
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pages = document.getElementById("pages").value;
+    const read = document.getElementById("read").checked;
 
-  addBooks(title, author, pages, read);
-  displayBooks();
+    addBooks(title, author, pages, read);
+    displayBooks();
 
-  this.reset();
-  this.style.display = "none";
-});
+    this.reset();
+    this.style.display = "none";
+  });
 
-document.addEventListener("click", (event) => {
+document.addEventListener("click", function (event) {
   if (event.target.classList.contains("remove-button")) {
     const bookId = event.target.dataset.id;
     const bookIndex = library.findIndex((book) => book.id === bookId);
@@ -72,7 +74,7 @@ Book.prototype.toggleRead = function () {
   this.read = !this.read;
 };
 
-document.addEventListener("click", (event) => {
+document.addEventListener("click", function (event) {
   if (event.target.classList.contains("toggle-read-button")) {
     const bookId = event.target.dataset.id;
     const book = library.find((book) => book.id === bookId);
